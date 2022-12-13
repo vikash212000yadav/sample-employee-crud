@@ -1,5 +1,6 @@
 import json
 
+from decouple import config
 from flask import Flask, Response, request
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
@@ -11,7 +12,7 @@ from func_utils import missing_attributes, no_result_found, general_exception, v
 
 app = Flask(__name__)
 app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgres://adxxtftt:2CmNxtTBcJjbMsCptKaL9Y8Y-YqnU7Ab@castor.db.elephantsql.com/adxxtftt'
+    'SQLALCHEMY_DATABASE_URI'] = config("SQL_DATABASE_URI")
 
 api = Api(app)
 
